@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PV2024C2_Lab03Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="spConsultarCantones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spConsultarCantonesPorProvinciaId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spConsultarCantonPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCanton" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spConsultarDistritoPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDistrito" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spConsultarDistritos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spConsultarProvinciaPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spConsultarProvincias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spCrearCanton" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="fechaCreacion" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spCrearDistrito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCanton" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="fechaCreacion" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spCrearProvincia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="fechaCreacion" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spEditarCanton" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCanton" Type="int" Mode="In" />
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spEditarDistrito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDistrito" Type="int" Mode="In" />
+          <Parameter Name="idCanton" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spEditarProvincia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spEliminarCanton" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCanton" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarDistrito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDistrito" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spEliminarProvincia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="PV2024C2_Lab03ModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PV2024C2_Lab03Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PV2024C2_Lab03Entities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="spConsultarCantones" ReturnType="Collection(PV2024C2_Lab03Model.spConsultarCantones_Result)" />
+          <FunctionImport Name="spConsultarCantonesPorProvinciaId" ReturnType="Collection(PV2024C2_Lab03Model.spConsultarCantonesPorProvinciaId_Result)">
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultarCantonPorId" ReturnType="Collection(PV2024C2_Lab03Model.spConsultarCantonPorId_Result)">
+            <Parameter Name="idCanton" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultarDistritoPorId" ReturnType="Collection(PV2024C2_Lab03Model.spConsultarDistritoPorId_Result)">
+            <Parameter Name="idDistrito" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultarDistritos" ReturnType="Collection(PV2024C2_Lab03Model.spConsultarDistritos_Result)" />
+          <FunctionImport Name="spConsultarProvinciaPorId" ReturnType="Collection(String)">
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultarProvincias" ReturnType="Collection(PV2024C2_Lab03Model.spConsultarProvincias_Result)" />
+          <FunctionImport Name="spCrearCanton">
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="fechaCreacion" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spCrearDistrito">
+            <Parameter Name="idCanton" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="fechaCreacion" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spCrearProvincia">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="fechaCreacion" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spEditarCanton">
+            <Parameter Name="idCanton" Mode="In" Type="Int32" />
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEditarDistrito">
+            <Parameter Name="idDistrito" Mode="In" Type="Int32" />
+            <Parameter Name="idCanton" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEditarProvincia">
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarCanton">
+            <Parameter Name="idCanton" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarDistrito">
+            <Parameter Name="idDistrito" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spEliminarProvincia">
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="spConsultarCantones_Result">
+          <Property Type="Int32" Name="idCanton" Nullable="false" />
+          <Property Type="Int32" Name="idProvincia" Nullable="false" />
+          <Property Type="String" Name="provincia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="canton" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="spConsultarCantonesPorProvinciaId_Result">
+          <Property Type="Int32" Name="idCanton" Nullable="false" />
+          <Property Type="Int32" Name="idProvincia" Nullable="false" />
+          <Property Type="String" Name="canton" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="spConsultarCantonPorId_Result">
+          <Property Type="Int32" Name="idCanton" Nullable="false" />
+          <Property Type="Int32" Name="idProvincia" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="spConsultarDistritoPorId_Result">
+          <Property Type="Int32" Name="idDistrito" Nullable="false" />
+          <Property Type="Int32" Name="idCanton" Nullable="false" />
+          <Property Type="Int32" Name="idProvincia" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="spConsultarDistritos_Result">
+          <Property Type="Int32" Name="idDistrito" Nullable="false" />
+          <Property Type="Int32" Name="idCanton" Nullable="false" />
+          <Property Type="Int32" Name="idProvincia" Nullable="true" />
+          <Property Type="String" Name="provincia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="canton" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="distrito" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="spConsultarProvincias_Result">
+          <Property Type="Int32" Name="idProvincia" Nullable="false" />
+          <Property Type="String" Name="provincia" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="3" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PV2024C2_Lab03ModelStoreContainer" CdmEntityContainer="PV2024C2_Lab03Entities" >
+          <FunctionImportMapping FunctionImportName="spConsultarCantones" FunctionName="PV2024C2_Lab03Model.Store.spConsultarCantones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2024C2_Lab03Model.spConsultarCantones_Result">
+                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spConsultarCantonesPorProvinciaId" FunctionName="PV2024C2_Lab03Model.Store.spConsultarCantonesPorProvinciaId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2024C2_Lab03Model.spConsultarCantonesPorProvinciaId_Result">
+                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spConsultarCantonPorId" FunctionName="PV2024C2_Lab03Model.Store.spConsultarCantonPorId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2024C2_Lab03Model.spConsultarCantonPorId_Result">
+                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spConsultarDistritoPorId" FunctionName="PV2024C2_Lab03Model.Store.spConsultarDistritoPorId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2024C2_Lab03Model.spConsultarDistritoPorId_Result">
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spConsultarDistritos" FunctionName="PV2024C2_Lab03Model.Store.spConsultarDistritos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2024C2_Lab03Model.spConsultarDistritos_Result">
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+                <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spConsultarProvinciaPorId" FunctionName="PV2024C2_Lab03Model.Store.spConsultarProvinciaPorId" />
+          <FunctionImportMapping FunctionImportName="spConsultarProvincias" FunctionName="PV2024C2_Lab03Model.Store.spConsultarProvincias">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2024C2_Lab03Model.spConsultarProvincias_Result">
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCrearCanton" FunctionName="PV2024C2_Lab03Model.Store.spCrearCanton" />
+          <FunctionImportMapping FunctionImportName="spCrearDistrito" FunctionName="PV2024C2_Lab03Model.Store.spCrearDistrito" />
+          <FunctionImportMapping FunctionImportName="spCrearProvincia" FunctionName="PV2024C2_Lab03Model.Store.spCrearProvincia" />
+          <FunctionImportMapping FunctionImportName="spEditarCanton" FunctionName="PV2024C2_Lab03Model.Store.spEditarCanton" />
+          <FunctionImportMapping FunctionImportName="spEditarDistrito" FunctionName="PV2024C2_Lab03Model.Store.spEditarDistrito" />
+          <FunctionImportMapping FunctionImportName="spEditarProvincia" FunctionName="PV2024C2_Lab03Model.Store.spEditarProvincia" />
+          <FunctionImportMapping FunctionImportName="spEliminarCanton" FunctionName="PV2024C2_Lab03Model.Store.spEliminarCanton" />
+          <FunctionImportMapping FunctionImportName="spEliminarDistrito" FunctionName="PV2024C2_Lab03Model.Store.spEliminarDistrito" />
+          <FunctionImportMapping FunctionImportName="spEliminarProvincia" FunctionName="PV2024C2_Lab03Model.Store.spEliminarProvincia" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

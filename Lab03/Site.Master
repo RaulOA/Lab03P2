@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Lab03.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <link href="~/Content/css" rel="stylesheet" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server" />
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" runat="server" href="Pages/ListaProvincias.aspx">Lista de Provincias</a>
+                <a class="navbar-brand" runat="server" href="Pages/CrearProvincia.aspx">Crear Provincia</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="container mt-4">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <footer class="bg-dark text-center text-white py-3">
+            <div class="container">
+                <p>&copy; <%: DateTime.Now.Year %> Mi Aplicación ASP.NET</p>
+            </div>
+        </footer>
+
+        <asp:PlaceHolder runat="server">
+            <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+        </asp:PlaceHolder>
+    </form>
+</body>
+</html>
