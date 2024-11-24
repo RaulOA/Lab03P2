@@ -16,6 +16,7 @@
             <div class="container">
                 <a class="navbar-brand" runat="server" href="Pages/ListaProvincias.aspx">Lista de Provincias</a>
                 <a class="navbar-brand" runat="server" href="Pages/CrearProvincia.aspx">Crear Provincia</a>
+                <%--<a class="navbar-brand" runat="server" href="Pages/EditarProvincia.aspx">Editar Provincia</a>--%>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

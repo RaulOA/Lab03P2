@@ -65,13 +65,13 @@ namespace Lab03.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarDistritos_Result>("spConsultarDistritos");
         }
     
-        public virtual ObjectResult<string> spConsultarProvinciaPorId(Nullable<int> idProvincia)
+        public virtual ObjectResult<spConsultarProvinciaPorId_Result> spConsultarProvinciaPorId(Nullable<int> idProvincia)
         {
             var idProvinciaParameter = idProvincia.HasValue ?
                 new ObjectParameter("idProvincia", idProvincia) :
                 new ObjectParameter("idProvincia", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spConsultarProvinciaPorId", idProvinciaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultarProvinciaPorId_Result>("spConsultarProvinciaPorId", idProvinciaParameter);
         }
     
         public virtual ObjectResult<spConsultarProvincias_Result> spConsultarProvincias()

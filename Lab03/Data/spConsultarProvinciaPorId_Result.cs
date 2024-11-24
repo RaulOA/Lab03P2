@@ -11,10 +11,10 @@ namespace Lab03.Data
 {
     using System;
     
-    public partial class spConsultarProvincias_Result
+    public partial class spConsultarProvinciaPorId_Result
     {
         public int idProvincia { get; set; }
-        public string provincia { get; set; }
+        public string nombre { get; set; }
         public System.DateTime fechaCreacion { get; set; }
         public string estado { get; set; }
     }

@@ -126,14 +126,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="Data\Lab03.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Lab03.Context.cs</LastGenOutput>
       <DependentUpon>Lab03.edmx</DependentUpon>
+      <LastGenOutput>Lab03.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Data\Lab03.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Lab03.edmx</DependentUpon>
       <LastGenOutput>Lab03.cs</LastGenOutput>
     </Content>
+    <Content Include="Pages\EditarProvincia.aspx" />
     <Content Include="Pages\ResultadoDeCrearProvincia.aspx" />
     <Content Include="Pages\CrearProvincia.aspx" />
     <Content Include="Pages\ListaProvincias.aspx" />
@@ -240,8 +241,18 @@
     <Compile Include="Data\spConsultarDistritos_Result.cs">
       <DependentUpon>Lab03.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\spConsultarProvinciaPorId_Result.cs">
+      <DependentUpon>Lab03.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\spConsultarProvincias_Result.cs">
       <DependentUpon>Lab03.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditarProvincia.aspx.cs">
+      <DependentUpon>EditarProvincia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditarProvincia.aspx.designer.cs">
+      <DependentUpon>EditarProvincia.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ResultadoDeCrearProvincia.aspx.cs">
       <DependentUpon>ResultadoDeCrearProvincia.aspx</DependentUpon>

@@ -4,15 +4,27 @@
     <div class="container mt-5">
         <h2 class="text-center mb-4">Lista de provincias</h2>
         <div class="text-start mb-3">
-            <asp:HyperLink ID="lnkCrearProvincia" runat="server" NavigateUrl="CrearProvincia.aspx" CssClass="btn btn-link">Crear provincia</asp:HyperLink>
+            <%--<asp:HyperLink ID="lnkCrearProvincia" runat="server" NavigateUrl="CrearProvincia.aspx" CssClass="btn btn-link">Crear provincia</asp:HyperLink>--%>
         </div>
+
         <asp:GridView ID="GridViewProvincias" runat="server" CssClass="table table-bordered text-center" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="idProvincia" HeaderText="ID" />
                 <asp:BoundField DataField="provincia" HeaderText="Provincia" />
                 <asp:BoundField DataField="estado" HeaderText="Estado" />
                 <asp:BoundField DataField="fechaCreacion" HeaderText="Fecha creación" DataFormatString="{0:dd/MM/yyyy}" />
+                <asp:TemplateField HeaderText="Acciones">
+                    <ItemTemplate>
+                        <asp:HyperLink ID="lnkEditar" runat="server"
+                            NavigateUrl='<%# Eval("idProvincia", "EditarProvincia.aspx?id={0}") %>'
+                            Text="Editar"
+                            CssClass="btn btn-link">
+                        </asp:HyperLink>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
+
+
     </div>
 </asp:Content>

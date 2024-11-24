@@ -78,7 +78,7 @@
             <Parameter Name="idDistrito" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spConsultarDistritos" ReturnType="Collection(PV2024C2_Lab03Model.spConsultarDistritos_Result)" />
-          <FunctionImport Name="spConsultarProvinciaPorId" ReturnType="Collection(String)">
+          <FunctionImport Name="spConsultarProvinciaPorId" ReturnType="Collection(PV2024C2_Lab03Model.spConsultarProvinciaPorId_Result)">
             <Parameter Name="idProvincia" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spConsultarProvincias" ReturnType="Collection(PV2024C2_Lab03Model.spConsultarProvincias_Result)" />
@@ -163,6 +163,12 @@
           <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="3" />
         </ComplexType>
+        <ComplexType Name="spConsultarProvinciaPorId_Result">
+          <Property Type="Int32" Name="idProvincia" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="3" />
+        </ComplexType>
         <ComplexType Name="spConsultarProvincias_Result">
           <Property Type="Int32" Name="idProvincia" Nullable="false" />
           <Property Type="String" Name="provincia" Nullable="false" MaxLength="50" />
@@ -235,7 +241,16 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spConsultarProvinciaPorId" FunctionName="PV2024C2_Lab03Model.Store.spConsultarProvinciaPorId" />
+          <FunctionImportMapping FunctionImportName="spConsultarProvinciaPorId" FunctionName="PV2024C2_Lab03Model.Store.spConsultarProvinciaPorId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PV2024C2_Lab03Model.spConsultarProvinciaPorId_Result">
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spConsultarProvincias" FunctionName="PV2024C2_Lab03Model.Store.spConsultarProvincias">
             <ResultMapping>
               <ComplexTypeMapping TypeName="PV2024C2_Lab03Model.spConsultarProvincias_Result">
